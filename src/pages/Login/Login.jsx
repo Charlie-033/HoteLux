@@ -55,14 +55,19 @@ const Login = () => {
       })
       .catch((error) => {
         setError(error.message);
+         Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: `${error.message}`,
+        });
       });
   };
   return (
-    <div className="flex justify-center items-center py-10">
+    <div className="flex flex-col lg:flex-row justify-center items-center py-10 px-3">
       <motion.div
         animate={{ y: [20, 50, 20] }}
         transition={{ duration: 4, repeat: Infinity }}
-        className="card bg-base-100 w-full max-w-md items-center shrink-0 shadow-xl bg-linear-to-r from-orange-50 to-white hover:scale-105 transition-transform duration-300"
+        className="card bg-base-100 w-full max-w-md items-center shrink-0 shadow-xl bg-linear-to-r from-orange-50 to-white hover:scale-105 transition-transform duration-300 order-2 lg:order-1"
       >
         <div className="card-body py-8">
           <form onSubmit={handleLogin}>
@@ -140,11 +145,11 @@ const Login = () => {
           </button>
         </div>
       </motion.div>
-      <div>
+      <div className="order-1 lg:order-2">
         <Lottie
           animationData={LoginAnimation}
           loop={true}
-          style={{ width: "400px" }}
+          className="w-[300px] md:w-[350px] lg:w-[400px]"
         ></Lottie>
       </div>
     </div>
