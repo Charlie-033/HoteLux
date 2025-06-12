@@ -28,10 +28,10 @@ export const router = createBrowserRouter([
                 path: 'rooms',
                 element: <Rooms/>
             },
-            // {
-            //     path: 'rooms/:id',
-            //     element: <RoomDetails/>
-            // }
+            {
+                path: 'rooms/:id',
+                element: <RoomDetails/>
+            }
         ]
     },
     {
