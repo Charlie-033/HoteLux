@@ -1,6 +1,5 @@
 [
-    {
-  "_id": { "$oid": "66699a70f3f2a1b2c3d4e5f6" }, 
+  { 
   "roomName": "Mandala Apartment",
   "basePrice": {
     "amount": 275,
@@ -12,7 +11,9 @@
   "roomCapacity": {
     "adults": 2,
     "children": 1,
-    "notes": "Max 3 people: 2 adults, 1 child"
+    "roomArea": "80M2",
+    "maxPersons": "1-3",
+    "numBeds": 2
   },
   "amenities": [
     { "name": "Airport transport", "icon": "plane-departure" },
@@ -27,10 +28,6 @@
     { "name": "WiFi", "icon": "wifi" }
   ],
   "galleryImages": [
-    {
-      "url": "https://i.ibb.co/Y739Rbfw/Room-1.jpg",
-      "alt": "Spacious bedroom with a king bed and white linens"
-    },
     {
       "url": "https://i.ibb.co/Y739Rbfw/Room-1.jpg",
       "alt": "Modern bathroom with a walk-in shower"
@@ -74,6 +71,10 @@
       },
       "rateType": "Low rate"
     }
+  ],
+  "reviews": [
+    {"user": "Tom", "comment": "Nice stay!", "ratings": 5},
+    {"user": "Jerry", "comment": "Better stay!", "ratings": 4}
   ],
   "createdAt": { "$date": "2025-06-12T08:45:00.000Z" },
   "updatedAt": { "$date": "2025-06-12T08:45:00.000Z" }

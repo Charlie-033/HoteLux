@@ -5,6 +5,8 @@ import "leaflet/dist/leaflet.css";
 const MapView = () => {
   const position = [41.8719, 12.5674]
   return (
+    <>
+    <h1 className="text-center font-semibold text-3xl md:text-4xl lg:text-5xl pt-10">FIND US ON MAP</h1>
    <div className="flex flex-col lg:flex-row justify-between gap-5 px-5 pb-12 pt-7">
      <MapContainer
       center={position}
@@ -39,14 +41,15 @@ const MapView = () => {
         <p className="font-semibold mb-2">City Name/ Regison: Rome</p>
         <p className="font-semibold mb-2">Hotel Name: Lakeside Boutique Resort</p>
         <p className="font-semibold mb-2">Specific Landmarks/Attractions: Colosseum, Roman Forum, Pantheon, Trevi Fountain, Spanish Steps, Vatican City (St. Peter's Basilica, Vatican Museums), Piazza Navona, Galleria Borghese. </p>
-        <p className="font-semibold mb-2">Neighborhood Name: <ul>
+        <div className="font-semibold mb-2">Neighborhood Name: <ul>
           <li>Trastevere (e.g., "charming Trastevere neighborhood")</li>
           <li>Monti (e.g., "historic Monti district")</li>
           <li>Prati (e.g., "upscale Prati area")</li>
           <li>Spanish Steps/Trevi Fountain area (e.g., "the iconic Spanish Steps area")</li>
-          </ul> </p>
+          </ul> </div>
       </div>
    </div>
+   </>
   );
 };
 
