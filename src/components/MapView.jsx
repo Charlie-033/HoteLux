@@ -7,6 +7,7 @@ const MapView = () => {
   return (
     <>
     <h1 className="text-center font-semibold text-3xl md:text-4xl lg:text-5xl pt-10">FIND US ON MAP</h1>
+    <p className='text-center w-4/5 lg:w-3/5 mx-auto pb-12'>Locate us effortlessly! Our interactive map provides precise directions to our doorstep. Simply click the "Find Us on Map" link to view our exact location, plan your route, and discover nearby landmarks. We're easy to find and look forward to welcoming you soon, whether you're driving, walking, or using public transport.</p>
    <div className="flex flex-col lg:flex-row justify-between gap-5 px-5 pb-12 pt-7">
      <MapContainer
       center={position}

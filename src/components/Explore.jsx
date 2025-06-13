@@ -3,7 +3,7 @@ import React from 'react';
 const Explore = () => {
     return (
         <div>
-            <h1 className='text-center font-semibold text-3xl md:text-4xl lg:text-5xl'>BEST OFFERS & PROMOTIONS</h1>
+            <h1 className='text-center font-semibold text-3xl md:text-4xl lg:text-5xl pt-10'>BEST OFFERS & PROMOTIONS</h1>
             <p className='text-center w-4/5 lg:w-3/5 mx-auto pb-12'>Unlock exclusive savings and elevate your stay with our best offers and promotions! Discover seasonal discounts, package deals, and special rates designed to make your visit unforgettable. From romantic getaways to family adventures and business trips, find the perfect offer to suit your needs and enjoy exceptional value at our hotel.</p>
             <h2 className='text-center text-2xl text-gray-800'>Contact Front Desk:</h2>
             <p className='text-center text-lg'>+123 456 789; +987 654 321</p>

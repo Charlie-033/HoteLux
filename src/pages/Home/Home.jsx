@@ -11,7 +11,7 @@ const Home = () => {
         <div>
             <Hero/>
             <MapView/>
-            {/* <FeaturedRoom/> */}
+            <FeaturedRoom/>
             <Explore/>
             <TopOffers/>
             <HotelStats/>
