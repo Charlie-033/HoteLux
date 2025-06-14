@@ -44,7 +44,7 @@ const Navbar = () => {
               <NavLink to="/rooms">Rooms</NavLink>
             </li>
             <li>
-              <NavLink to="/my-bookings">My Bookings</NavLink>
+              <NavLink to={`/my-bookings/${user?.email}`}>My Bookings</NavLink>
             </li>
             <li>
               <NavLink to="/blog">Blog</NavLink>
@@ -89,7 +89,7 @@ const Navbar = () => {
                   isActive ? "font-semibold underline" : ""
                 }`
               }
-              to="/my-bookings"
+              to={`/my-bookings/${user?.email}`}
             >
               My Bookings
             </NavLink>

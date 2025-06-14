@@ -19,12 +19,14 @@ const FeaturedRoom = () => {
     })
   }, []);
   if (loading) return <Loader />;
-   if (rooms.length === 0) return <p>No rooms found.</p>;
 
   return (
     <div>
       <h1 className='text-center font-semibold text-3xl md:text-4xl lg:text-5xl pt-10'>TOP RATED ROOMS</h1>
       <p className='text-center w-4/5 lg:w-3/5 mx-auto pb-12'>Top-rated rooms epitomize luxury and comfort, consistently exceeding guest expectations. These premier accommodations often feature expansive layouts, premium amenities, breathtaking views, and exclusive services like personalized butler assistance. Guests choose them for an unforgettable, indulgent experience where every detail caters to an exceptional stay.</p>
+      {
+        rooms.length === 0 && <h1 className='text-center font-semibold text-3xl pt-10'>No Rooms Found!</h1>
+      }
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 px-12 mx-auto py-10'>
                 {
                     rooms.map((room, index) => <RoomCard key={index} room={room} ></RoomCard>)

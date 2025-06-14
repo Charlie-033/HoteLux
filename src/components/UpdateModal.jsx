@@ -4,7 +4,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
 import { AuthContext } from "../context/AuthContext/AuthContext";
 
-const BookingDialog = ({ room }) => {
+const BookingDialog = ({ room, booking, handleUpdateUI }) => {
   const { user } = useContext(AuthContext);
 
   const [selectedDate, setSelectedDate] = useState(null);
@@ -35,29 +35,37 @@ const BookingDialog = ({ room }) => {
     }
   }, [selectedDate]);
 
-  const handleConfirmBooking = async () => {
-    if (!selectedDate || !isAvailable) return;
-    if(!user?.email) return
-    const formattedDate = selectedDate.toLocaleDateString("en-CA");
+ const handleUpdateBooking = async () => {
+  if (!selectedDate || !isAvailable) return;
+  if (!user?.email) return;
 
-    try {
-      const booking = {
-        roomId: room._id,
-        userEmail: user?.email,
-        date: formattedDate,
-        price: room.basePrice.amount,
-        createdAt: new Date(),
-      };
+  const formattedDate = selectedDate.toLocaleDateString("en-CA");
 
-      await axios.post(`${import.meta.env.VITE_ROOT_URL}/bookings`, booking);
-      alert("Booking confirmed!");
-      document.getElementById("booking_modal").close();
-      setSelectedDate(null);
-      setIsAvailable(null);
-    } catch (err) {
-      setErrorMsg("Booking failed: " + err.message);
-    }
-  };
+  try {
+    const updatedData = {
+      roomId: room._id,
+      userEmail: user.email,
+      date: formattedDate,
+      price: room.basePrice.amount,
+    };
+
+    await axios.put(`${import.meta.env.VITE_ROOT_URL}/bookings/${booking?._id}`, updatedData,{
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
+
+    handleUpdateUI({...booking, ...updatedData})
+
+    alert("Update Successful!");
+    document.getElementById("booking_modal").close();
+    setSelectedDate(null);
+    setIsAvailable(null);
+  } catch (err) {
+    setErrorMsg("Booking update failed: " + err.message);
+  }
+};
+
 
   return (
     <>
@@ -107,10 +115,10 @@ const BookingDialog = ({ room }) => {
             </button>
             <button
               disabled={!isAvailable || !selectedDate}
-              onClick={handleConfirmBooking}
+              onClick={handleUpdateBooking}
               className="px-4 py-2 bg-blue-600 text-white rounded disabled:opacity-50"
             >
-              Confirm Booking
+              Update Booking
             </button>
           </div>
         </div>
