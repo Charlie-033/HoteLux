@@ -1,6 +1,7 @@
 import React from "react";
 import { FaBed, FaRulerCombined, FaUserFriends } from "react-icons/fa";
 import { useNavigate } from "react-router";
+import { motion } from "motion/react"
 
 const RoomCard = ({ room }) => {
   const {_id, galleryImages, roomName, basePrice, shortDescription, roomCapacity, reviews } =
@@ -10,7 +11,7 @@ const RoomCard = ({ room }) => {
         return navigate(`/rooms/${_id}`)
     }
   return (
-    <div onClick={roomDetails} className="max-w-md  rounded-lg overflow-hidden shadow-md">
+    <motion.div whileHover={{y:-5}} transition={{duration: 0.3}} onClick={roomDetails} className="max-w-md  rounded-lg overflow-hidden shadow-md">
       <div className="relative h-60 overflow-hidden">
         <img
           className="w-full h-full object-cover"
@@ -47,7 +48,7 @@ const RoomCard = ({ room }) => {
         </h3>
         <p className="text-gray-700 text-sm">{shortDescription}</p>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
