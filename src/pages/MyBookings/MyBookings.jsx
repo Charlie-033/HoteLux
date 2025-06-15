@@ -4,6 +4,7 @@ import { AuthContext } from "../../context/AuthContext/AuthContext";
 import Loader from "../../components/Loader";
 import UpdateModal from "../../components/UpdateModal";
 import Swal from "sweetalert2";
+import ReviewModal from "../../components/ReviewModal";
 
 const MyBookings = () => {
   const [bookings, setBookings] = useState([]);
@@ -110,7 +111,7 @@ const MyBookings = () => {
                       className="w-20 h-14 object-cover rounded"
                     />
                   </td>
-                  <td className="px-6 py-4 font-medium text-gray-900">
+                  <td className="px-6 py-4 font-medium text-lg text-gray-900">
                     {roomName}
                   </td>
                   <td className="px-6 py-4">{roomCapacity.roomArea}</td>
@@ -131,16 +132,28 @@ const MyBookings = () => {
                           document.getElementById("booking_modal").showModal();
                         }, 0);
                       }}
-                      className="px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded text-xs"
+                      className="px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded text-xs w-27"
                     >
                       Update Date
                     </button>
                     <br />
                     <button
                       onClick={() => handleCancelBooking(booking._id)}
-                      className="px-3 py-1 bg-red-500 hover:bg-red-600 text-white rounded text-xs"
+                      className="px-3 py-1 bg-red-500 hover:bg-red-600 text-white rounded text-xs w-27"
                     >
                       Cancel Booking
+                    </button>
+                    <br />
+                    <button
+                      onClick={() => {
+                        setSelectedRoom(booking.room);
+                        setTimeout(() => {
+                          document.getElementById("review_modal").showModal();
+                        }, 0);
+                      }}
+                      className="px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded text-xs w-27"
+                    >
+                      Review
                     </button>
                   </td>
                 </tr>
@@ -154,6 +167,7 @@ const MyBookings = () => {
                 handleUpdateUI={handleUpdateUI}
               />
             )}
+            <ReviewModal room={selectedRoom} />
           </tbody>
         </table>
       </div>

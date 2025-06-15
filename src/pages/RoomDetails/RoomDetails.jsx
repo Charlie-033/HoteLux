@@ -118,7 +118,7 @@ const RoomDetails = () => {
             <div className="flex items-center text-sm text-gray-600 space-x-4">
               <span className="flex items-center">
                 <FaStar className="text-yellow-500 mr-1" />{" "}
-                <span className="mr-2">{avarageRatings()}</span>{" "}
+                <span className="mr-2">{avarageRatings().toFixed(1)}</span>{" "}
                 <span>({room.reviews.length} reviews)</span>
               </span>
             </div>
