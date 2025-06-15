@@ -3,6 +3,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
 import { AuthContext } from "../context/AuthContext/AuthContext";
+import Swal from "sweetalert2";
 
 const BookingDialog = ({ room, booking, handleUpdateUI }) => {
   const { user } = useContext(AuthContext);
@@ -49,7 +50,7 @@ const BookingDialog = ({ room, booking, handleUpdateUI }) => {
       price: room.basePrice.amount,
     };
 
-    await axios.put(`${import.meta.env.VITE_ROOT_URL}/bookings/${booking?._id}`, updatedData,{
+    await axios.put(`${import.meta.env.VITE_ROOT_URL}/my-bookings/${booking?._id}`, updatedData,{
         headers: {
             "Content-Type": "application/json"
         }
@@ -57,7 +58,7 @@ const BookingDialog = ({ room, booking, handleUpdateUI }) => {
 
     handleUpdateUI({...booking, ...updatedData})
 
-    alert("Update Successful!");
+    Swal.fire("Booking date updated successfully..✅");
     document.getElementById("booking_modal").close();
     setSelectedDate(null);
     setIsAvailable(null);

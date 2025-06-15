@@ -3,9 +3,12 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
 import { AuthContext } from "../context/AuthContext/AuthContext";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router";
 
 const BookingDialog = ({ room }) => {
   const { user } = useContext(AuthContext);
+  const navigate = useNavigate()
 
   const [selectedDate, setSelectedDate] = useState(null);
   const [isAvailable, setIsAvailable] = useState(null);
@@ -50,8 +53,9 @@ const BookingDialog = ({ room }) => {
       };
 
       await axios.post(`${import.meta.env.VITE_ROOT_URL}/bookings`, booking);
-      alert("Booking confirmed!");
+      Swal.fire(`Room booking confirm at ${formattedDate}`)
       document.getElementById("booking_modal").close();
+      // navigate(`/my-bookings/${user?.email}`)
       setSelectedDate(null);
       setIsAvailable(null);
     } catch (err) {

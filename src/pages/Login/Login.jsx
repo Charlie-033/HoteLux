@@ -2,7 +2,6 @@ import Lottie from "lottie-react";
 import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 import LoginAnimation from "../../data/login_animation.json.json";
-import { motion } from "motion/react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../context/AuthContext/AuthContext";
 
@@ -64,10 +63,8 @@ const Login = () => {
   };
   return (
     <div className="flex flex-col lg:flex-row justify-center items-center py-10 px-3">
-      <motion.div
-        animate={{ y: [20, 50, 20] }}
-        transition={{ duration: 4, repeat: Infinity }}
-        className="card bg-base-100 w-full max-w-md items-center shrink-0 shadow-xl bg-linear-to-r from-orange-50 to-white hover:scale-105 transition-transform duration-300 order-2 lg:order-1"
+      <div
+        className="card bg-base-100 w-full max-w-md items-center shrink-0 shadow-xl bg-linear-to-r from-orange-50 to-white hover:scale-103 transition-transform duration-300 order-2 lg:order-1"
       >
         <div className="card-body py-8">
           <form onSubmit={handleLogin}>
@@ -144,7 +141,7 @@ const Login = () => {
             Login with Google
           </button>
         </div>
-      </motion.div>
+      </div>
       <div className="order-1 lg:order-2">
         <Lottie
           animationData={LoginAnimation}

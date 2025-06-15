@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import {
   FaStar,
   FaCalendarAlt,
@@ -17,15 +17,20 @@ import {
 } from "react-icons/fa"; 
 import Loader from "../../components/Loader";
 import axios from "axios";
-import { Link, useParams } from "react-router";
+import { Link, Navigate, useLocation, useNavigate, useParams } from "react-router";
 import { PiHairDryer } from "react-icons/pi";
 import { easeInOut, motion } from "motion/react"
 import BookingModal from "../../components/BookingModal";
+import { AuthContext } from "../../context/AuthContext/AuthContext";
+import Swal from "sweetalert2";
 
 const RoomDetails = () => {
   const [room, setRoom] = useState(null);
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
+  const {user} = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate()
   console.log(id);
   useEffect(() => {
     axios(`${import.meta.env.VITE_ROOT_URL}/rooms/${id}`)
@@ -59,6 +64,30 @@ const RoomDetails = () => {
     );
     return total / room.reviews.length || 0;
   };
+  const handleBookingModal = () => {
+    if(user?.email){
+      document.getElementById("booking_modal").showModal()
+    } else{
+       Swal.fire({
+              title: "You are not logged in! Please login first.",
+              showClass: {
+                popup: `
+            animate__animated
+            animate__fadeInUp
+            animate__faster
+          `,
+              },
+              hideClass: {
+                popup: `
+            animate__animated
+            animate__fadeOutDown
+            animate__faster
+          `,
+              },
+            });
+      navigate("/login", {state:{from: location}})
+    }
+  }
 
   return (
     <div className="font-sans antialiased text-gray-800 bg-gray-50 min-h-screen">
@@ -94,7 +123,7 @@ const RoomDetails = () => {
               </span>
             </div>
           </div>
-          <motion.button onClick={() => document.getElementById("booking_modal").showModal()} className="btn btn-secondary" animate={{x:[0,10,0]}} transition={{repeat: Infinity, duration:2, ease: easeInOut}}>Book Now <FaArrowRight /></motion.button>
+          <motion.button onClick={handleBookingModal} className="btn btn-secondary" animate={{x:[0,10,0]}} transition={{repeat: Infinity, duration:2, ease: easeInOut}}>Book Now <FaArrowRight /></motion.button>
         </div>
         <BookingModal room={room}/>
         

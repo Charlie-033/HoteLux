@@ -7,6 +7,7 @@ import ErrorPage from "../pages/NotFound/ErrorPage";
 import Rooms from "../pages/Rooms/Rooms";
 import RoomDetails from "../pages/RoomDetails/RoomDetails";
 import MyBookings from "../pages/MyBookings/MyBookings";
+import PrivateRoute from "../context/PrivateRoute/PrivateRoute";
 
 export const router = createBrowserRouter([
     {
@@ -35,7 +36,9 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'my-bookings/:email',
-                element: <MyBookings/>
+                element: <PrivateRoute>
+                    <MyBookings/>
+                </PrivateRoute>
             }
         ]
     },
