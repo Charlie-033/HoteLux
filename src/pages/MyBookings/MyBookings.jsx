@@ -26,7 +26,9 @@ const MyBookings = () => {
   }, [user?.email]);
   if (loading) return <Loader />;
   if (bookings.length === 0)
-    return <p className="text-center text-2xl py-2 my-auto">No rooms found!</p>;
+    return (
+      <p className="text-center text-3xl py-2 my-auto">No Bookings Found!</p>
+    );
 
   const handleUpdateUI = (updatedBooking) => {
     setBookings((prev) =>

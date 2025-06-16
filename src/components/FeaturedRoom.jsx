@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Loader from "./Loader";
 import RoomCard from "../pages/Rooms/RoomCard";
+import FeatureCard from "./FeatureCard";
 
 const FeaturedRoom = () => {
   const [rooms, setRooms] = useState([]);
@@ -29,7 +30,7 @@ const FeaturedRoom = () => {
       }
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 px-12 mx-auto py-10'>
                 {
-                    rooms.map((room, index) => <RoomCard key={index} room={room} ></RoomCard>)
+                    rooms.map((room, index) => <FeatureCard key={index} room={room} ></FeatureCard>)
                 }
             </div>
     </div>

@@ -2,40 +2,32 @@ import React, { useContext, useState } from "react";
 import { AuthContext } from "../context/AuthContext/AuthContext";
 import axios from "axios";
 import Swal from "sweetalert2";
-import ReactStars from "react-rating-stars-component";
 
-const ReviewModal = ({ room }) => {
+const WebsiteReview = () => {
   const { user } = useContext(AuthContext);
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState("");
-  const handleSubmitReview = async () => {
+
+  const handleSubmitReview = async() => {
     if (!rating || !comment || !user?.displayName) return;
 
-    const review = {
+    const newReview = {
       user: user.displayName,
       comment,
       ratings: rating,
     };
 
     try {
-      await axios.put(
-        `${import.meta.env.VITE_ROOT_URL}/rooms/${room._id}/review`,
-        review
-      );
+      await axios.post(`${import.meta.env.VITE_ROOT_URL}/reviews`, newReview);
       Swal.fire("Review submitted!");
 
       document.getElementById("review_modal").close();
       setComment("");
       setRating(0);
     } catch (err) {
-      console.error(err);
-      Swal.fire("Failed to submit review.");
+      console.log(err);
     }
   };
-
-  // const ratingChanged = (newRating) => {
-  //   setRating(newRating);
-  // };
   return (
     <dialog id="review_modal" className="modal">
       <div className="modal-box w-full max-w-md">
@@ -46,7 +38,7 @@ const ReviewModal = ({ room }) => {
             <label className="text-sm font-medium">Username</label>
             <input
               type="text"
-              value={user.displayName}
+              value={user?.displayName}
               disabled
               className="w-full border p-2 rounded bg-gray-100"
             />
@@ -91,4 +83,4 @@ const ReviewModal = ({ room }) => {
   );
 };
 
-export default ReviewModal;
+export default WebsiteReview;

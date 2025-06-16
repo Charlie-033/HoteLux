@@ -1,17 +1,37 @@
 import React from "react";
-import { FaBed, FaRulerCombined, FaUserFriends } from "react-icons/fa";
+import { FaBed, FaRulerCombined, FaStar, FaUserFriends } from "react-icons/fa";
 import { useNavigate } from "react-router";
-import { motion } from "motion/react"
+import { motion } from "motion/react";
 
 const RoomCard = ({ room }) => {
-  const {_id, galleryImages, roomName, basePrice, shortDescription, roomCapacity, reviews } =
-    room;
-    const navigate = useNavigate()
-    const roomDetails = () => {
-        return navigate(`/rooms/${_id}`)
-    }
+  const {
+    _id,
+    galleryImages,
+    roomName,
+    basePrice,
+    shortDescription,
+    roomCapacity
+  } = room;
+  const navigate = useNavigate();
+  const roomDetails = () => {
+    return navigate(`/rooms/${_id}`);
+  };
+
+  const avarageRatings = () => {
+    if (!room.reviews || room.reviews.length === 0) return 0;
+    const total = room.reviews.reduce(
+      (total, review) => total + review.ratings || 0,
+      0
+    );
+    return total / room.reviews.length || 0;
+  };
   return (
-    <motion.div whileHover={{y:-5}} transition={{duration: 0.3}} onClick={roomDetails} className="max-w-md  rounded-lg overflow-hidden shadow-md">
+    <motion.div
+      whileHover={{ y: -5 }}
+      transition={{ duration: 0.3 }}
+      onClick={roomDetails}
+      className="max-w-md  rounded-lg overflow-hidden shadow-md"
+    >
       <div className="relative h-60 overflow-hidden">
         <img
           className="w-full h-full object-cover"
@@ -44,8 +64,14 @@ const RoomCard = ({ room }) => {
           </span>
         </div>
         <h3 className="text-2xl font-semibold text-gray-900 mb-2 flex justify-between">
-          {roomName} <span className="text-sm">Reviews : {reviews.length}</span>
+          {roomName}
         </h3>
+        <p>
+          <span className="text-sm flex items-center">
+            Ratings : <FaStar className="text-yellow-500 px-1 text-2xl" />{" "}
+            {avarageRatings().toFixed(1)}
+          </span>
+        </p>
         <p className="text-gray-700 text-sm">{shortDescription}</p>
       </div>
     </motion.div>

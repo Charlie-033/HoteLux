@@ -5,6 +5,7 @@ import Explore from '../../components/Explore';
 import TopOffers from '../../components/TopOffers';
 import HotelStats from '../../components/HotelStats';
 import FeaturedRoom from '../../components/FeaturedRoom';
+import SimpleSlider from '../../components/ReviewCarousel';
 
 const Home = () => {
     return (
@@ -15,6 +16,7 @@ const Home = () => {
             <Explore/>
             <TopOffers/>
             <HotelStats/>
+            <SimpleSlider/>
         </div>
     );
 };

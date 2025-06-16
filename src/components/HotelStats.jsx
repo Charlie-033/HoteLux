@@ -1,5 +1,7 @@
 import React from "react";
 import CountUp from "react-countup";
+import ReviewModal from "./ReviewModal";
+import WebsiteReview from "./WebsiteReview";
 
 const HotelStats = () => {
   return (
@@ -28,6 +30,7 @@ const HotelStats = () => {
           <p className="text-xl">Total Review</p>
         </div>
       </div>
+      
     </div>
   );
 };

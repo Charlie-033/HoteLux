@@ -64,6 +64,7 @@ const RoomDetails = () => {
     );
     return total / room.reviews.length || 0;
   };
+  
   const handleBookingModal = () => {
     if(user?.email){
       document.getElementById("booking_modal").showModal()
