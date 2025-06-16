@@ -14,30 +14,41 @@ export default function SimpleSlider() {
     }, []);
   });
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 3000
+    autoplaySpeed: 3000,
+    pauseOnHover: true,
   };
   return (
     <div className="px-12 mx-auto">
-        <h2 className="text-3xl text-center">Our Customers Review</h2>
-      <Slider {...settings} >
+      <h2 className="text-3xl text-center">Our Customers Review</h2>
+      <Slider {...settings}>
         {reviews.map((review, index) => (
           <div key={index} className="p-4 bg-white rounded shadow">
-            <p className="text-lg font-semibold">{review.user} <span className="text-sm">Author</span></p>
-            <p className="text-sm text-gray-600">{review.comment}</p>
-            <p className="text-yellow-500 flex items-center">Ratings: <FaStar className="px-1 text-xl"/> {review.ratings}</p>
+            <p className="text-lg font-semibold">
+              {review.user} <span className="text-sm">Author</span>
+            </p>
+            <p className="text-md text-gray-600">{review.comment}</p>
+            <p className=" flex justify-between text-sm">
+              <span className="flex items-center text-md">Ratings: <FaStar className="px-1 text-xl text-yellow-500" /> {review.ratings}</span>
+              <span>{review.createdAt}</span>
+            </p>
           </div>
         ))}
       </Slider>
       <div className="flex justify-center py-10">
-        <button onClick={() => document.getElementById("review_modal").showModal()} className="btn btn-neutral">Review Us</button>
+        <button
+          onClick={() => document.getElementById("review_modal").showModal()}
+          className="btn btn-neutral"
+        >
+          Review Us
+        </button>
       </div>
-      <WebsiteReview/>
+      <WebsiteReview />
     </div>
   );
 }
