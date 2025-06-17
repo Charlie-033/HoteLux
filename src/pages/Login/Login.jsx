@@ -4,8 +4,10 @@ import { Link, useLocation, useNavigate } from "react-router";
 import LoginAnimation from "../../data/login_animation.json.json";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../context/AuthContext/AuthContext";
+import DocumentTitle from "../../services/DocumentTitle";
 
 const Login = () => {
+  DocumentTitle("Login")
      const { loginUser, googleSignIn } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();

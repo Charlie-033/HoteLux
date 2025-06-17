@@ -46,9 +46,6 @@ const Navbar = () => {
             <li>
               <NavLink to={`/my-bookings/${user?.email}`}>My Bookings</NavLink>
             </li>
-            <li>
-              <NavLink to="/blog">Blog</NavLink>
-            </li>
           </ul>
         </div>
         <div className="flex flex-col items-center justify-center">
@@ -92,18 +89,6 @@ const Navbar = () => {
               to={`/my-bookings/${user?.email}`}
             >
               My Bookings
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/blog"
-              className={({ isActive }) =>
-                `bg-transparent p-0 m-0 border-none rounded-none shadow-none text-stone-800 hover:scale-125 transition-transform  ${
-                  isActive ? "font-semibold underline" : ""
-                }`
-              }
-            >
-              Blog
             </NavLink>
           </li>
         </ul>

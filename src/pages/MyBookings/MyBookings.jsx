@@ -6,8 +6,10 @@ import UpdateModal from "../../components/UpdateModal";
 import Swal from "sweetalert2";
 import ReviewModal from "../../components/ReviewModal";
 import AxiosSecure from "../../hooks/useHooks/axiosSecure";
+import DocumentTitle from "../../services/DocumentTitle";
 
 const MyBookings = () => {
+  DocumentTitle("My-Bookings")
   const [bookings, setBookings] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedBooking, setSelectedBooking] = useState(null);

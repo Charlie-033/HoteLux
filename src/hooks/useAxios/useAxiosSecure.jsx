@@ -5,6 +5,7 @@ import { AuthContext } from '../../context/AuthContext/AuthContext';
 const axiosInstance = axios.create({
     baseURL: import.meta.env.VITE_ROOT_URL
 })
+
 const useAxiosSecure = () => {
     const{user, logOut} = useContext(AuthContext);
     

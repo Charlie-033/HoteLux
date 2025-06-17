@@ -2,8 +2,10 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Loader from "../../components/Loader";
 import RoomCard from "./RoomCard";
+import DocumentTitle from "../../services/DocumentTitle";
 
 const Rooms = () => {
+  DocumentTitle("Rooms")
   const [rooms, setRooms] = useState([]);
   const [loading, setLoading] = useState(true);
   const [sortBy, setSortBy] = useState();

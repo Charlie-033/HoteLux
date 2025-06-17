@@ -4,8 +4,10 @@ import { Link, useLocation, useNavigate } from "react-router";
 import RegisterAnimation from "../../data/register_animation.json.json";
 import { AuthContext } from "../../context/AuthContext/AuthContext";
 import Swal from "sweetalert2";
+import DocumentTitle from "../../services/DocumentTitle";
 
 const Register = () => {
+  DocumentTitle("Register")
   const { createUser, updateUser, googleSignIn } = useContext(AuthContext);
   const [passError, setPassError] = useState();
   const [error, setError] = useState();
