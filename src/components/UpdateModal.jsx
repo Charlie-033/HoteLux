@@ -4,6 +4,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
 import { AuthContext } from "../context/AuthContext/AuthContext";
 import Swal from "sweetalert2";
+import AxiosSecure from "../hooks/useHooks/axiosSecure";
 
 const BookingDialog = ({ room, booking, handleUpdateUI }) => {
   const { user } = useContext(AuthContext);
@@ -12,6 +13,7 @@ const BookingDialog = ({ room, booking, handleUpdateUI }) => {
   const [isAvailable, setIsAvailable] = useState(null);
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
+  const {axiosSecure} = AxiosSecure()
 
   const checkAvailability = async (date) => {
     if (!date) return;
@@ -50,7 +52,7 @@ const BookingDialog = ({ room, booking, handleUpdateUI }) => {
       price: room.basePrice.amount,
     };
 
-    await axios.put(`${import.meta.env.VITE_ROOT_URL}/my-bookings/${booking?._id}`, updatedData,{
+    await axiosSecure.put(`${import.meta.env.VITE_ROOT_URL}/my-bookings/${booking?._id}`, updatedData,{
         headers: {
             "Content-Type": "application/json"
         }

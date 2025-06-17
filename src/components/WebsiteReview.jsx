@@ -1,24 +1,26 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../context/AuthContext/AuthContext";
-import axios from "axios";
 import Swal from "sweetalert2";
+import AxiosSecure from "../hooks/useHooks/axiosSecure";
 
 const WebsiteReview = () => {
   const { user } = useContext(AuthContext);
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState("");
+  const {axiosSecure} = AxiosSecure()
 
   const handleSubmitReview = async() => {
-    if (!rating || !comment || !user?.displayName) return;
+    if (!rating || !comment || !user?.displayName || !user?.email) return;
 
     const newReview = {
       user: user.displayName,
+      email: user.email,
       comment,
       ratings: rating,
     };
 
     try {
-      await axios.post(`${import.meta.env.VITE_ROOT_URL}/reviews`, newReview);
+      await axiosSecure.post(`${import.meta.env.VITE_ROOT_URL}/reviews`, newReview);
       Swal.fire("Review submitted!");
 
       document.getElementById("review_modal").close();

@@ -1,10 +1,11 @@
-import axios from "axios";
+
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../context/AuthContext/AuthContext";
 import Loader from "../../components/Loader";
 import UpdateModal from "../../components/UpdateModal";
 import Swal from "sweetalert2";
 import ReviewModal from "../../components/ReviewModal";
+import AxiosSecure from "../../hooks/useHooks/axiosSecure";
 
 const MyBookings = () => {
   const [bookings, setBookings] = useState([]);
@@ -12,8 +13,10 @@ const MyBookings = () => {
   const [selectedBooking, setSelectedBooking] = useState(null);
   const [selectedRoom, setSelectedRoom] = useState(null);
   const { user } = useContext(AuthContext);
+  const {axiosSecure} = AxiosSecure();
+  // console.log(axiosSecure)
   useEffect(() => {
-    axios(`${import.meta.env.VITE_ROOT_URL}/my-bookings/${user?.email}`)
+    axiosSecure.get(`${import.meta.env.VITE_ROOT_URL}/my-bookings/${user?.email}`)
       .then((res) => {
         console.log(res.data);
         setBookings(res.data);
@@ -23,7 +26,7 @@ const MyBookings = () => {
         console.error("An error occured:", err);
         setLoading(false);
       });
-  }, [user?.email]);
+  }, [user?.email, axiosSecure]);
   if (loading) return <Loader />;
   if (bookings.length === 0)
     return (
@@ -46,7 +49,7 @@ const MyBookings = () => {
       confirmButtonText: "Yes, cancel booking!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios
+        axiosSecure
           .delete(`${import.meta.env.VITE_ROOT_URL}/my-bookings/${id}`)
           .then((res) => {
             if (res.data.deletedCount === 1) {

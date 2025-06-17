@@ -1,24 +1,26 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../context/AuthContext/AuthContext";
-import axios from "axios";
 import Swal from "sweetalert2";
-import ReactStars from "react-rating-stars-component";
+import AxiosSecure from "../hooks/useHooks/axiosSecure";
+
 
 const ReviewModal = ({ room }) => {
   const { user } = useContext(AuthContext);
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState("");
+  const {axiosSecure} = AxiosSecure()
   const handleSubmitReview = async () => {
-    if (!rating || !comment || !user?.displayName) return;
+    if (!rating || !comment || !user?.displayName || !user?.email) return;
 
     const review = {
       user: user.displayName,
+      email: user.email,
       comment,
       ratings: rating,
     };
 
     try {
-      await axios.put(
+      await axiosSecure.put(
         `${import.meta.env.VITE_ROOT_URL}/rooms/${room._id}/review`,
         review
       );
@@ -33,9 +35,6 @@ const ReviewModal = ({ room }) => {
     }
   };
 
-  // const ratingChanged = (newRating) => {
-  //   setRating(newRating);
-  // };
   return (
     <dialog id="review_modal" className="modal">
       <div className="modal-box w-full max-w-md">

@@ -5,6 +5,7 @@ import axios from "axios";
 import { AuthContext } from "../context/AuthContext/AuthContext";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router";
+import AxiosSecure from "../hooks/useHooks/axiosSecure";
 
 const BookingDialog = ({ room }) => {
   const { user } = useContext(AuthContext);
@@ -14,6 +15,7 @@ const BookingDialog = ({ room }) => {
   const [isAvailable, setIsAvailable] = useState(null);
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
+  const {axiosSecure} = AxiosSecure()
 
   const checkAvailability = async (date) => {
     if (!date) return;
@@ -52,10 +54,10 @@ const BookingDialog = ({ room }) => {
         createdAt: new Date(),
       };
 
-      await axios.post(`${import.meta.env.VITE_ROOT_URL}/bookings`, booking);
+      await axiosSecure.post(`${import.meta.env.VITE_ROOT_URL}/bookings`, booking);
       Swal.fire(`Room booking confirm at ${formattedDate}`)
       document.getElementById("booking_modal").close();
-      // navigate(`/my-bookings/${user?.email}`)
+      navigate(`/my-bookings/${user?.email}`)
       setSelectedDate(null);
       setIsAvailable(null);
     } catch (err) {

@@ -15,7 +15,7 @@ export default function SimpleSlider() {
   });
   const settings = {
     dots: false,
-    infinite: true,
+    infinite: reviews.length > 1,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
