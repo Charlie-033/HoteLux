@@ -2,13 +2,13 @@ import React, { useContext, useState } from "react";
 import { AuthContext } from "../context/AuthContext/AuthContext";
 import Swal from "sweetalert2";
 import AxiosSecure from "../hooks/useHooks/axiosSecure";
-
+import { Rating } from "react-simple-star-rating";
 
 const ReviewModal = ({ room }) => {
   const { user } = useContext(AuthContext);
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState("");
-  const {axiosSecure} = AxiosSecure()
+  const { axiosSecure } = AxiosSecure();
   const handleSubmitReview = async () => {
     if (!rating || !comment || !user?.displayName || !user?.email) return;
 
@@ -34,7 +34,6 @@ const ReviewModal = ({ room }) => {
       Swal.fire("Failed to submit review.");
     }
   };
-
   return (
     <dialog id="review_modal" className="modal">
       <div className="modal-box w-full max-w-md">
@@ -53,14 +52,18 @@ const ReviewModal = ({ room }) => {
 
           <div>
             <label className="text-sm font-medium">Rating (1–5)</label>
-            <input
-              type="number"
-              min="1"
-              max="5"
+            <select
               value={rating}
               onChange={(e) => setRating(Number(e.target.value))}
               className="w-full border p-2 rounded"
-            />
+            >
+              <option value="">Select rating</option>
+              {[1, 2, 3, 4, 5].map((num) => (
+                <option key={num} value={num}>
+                  {num}
+                </option>
+              ))}
+            </select>
           </div>
 
           <div>

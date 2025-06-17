@@ -7,7 +7,7 @@ const WebsiteReview = () => {
   const { user } = useContext(AuthContext);
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState("");
-  const {axiosSecure} = AxiosSecure()
+  const {axiosSecure} = AxiosSecure();
 
   const handleSubmitReview = async() => {
     if (!rating || !comment || !user?.displayName || !user?.email) return;
@@ -16,7 +16,7 @@ const WebsiteReview = () => {
       user: user.displayName,
       email: user.email,
       comment,
-      ratings: rating,
+      ratings: rating
     };
 
     try {
@@ -48,14 +48,18 @@ const WebsiteReview = () => {
 
           <div>
             <label className="text-sm font-medium">Rating (1–5)</label>
-            <input
-              type="number"
-              min="1"
-              max="5"
+            <select
               value={rating}
               onChange={(e) => setRating(Number(e.target.value))}
               className="w-full border p-2 rounded"
-            />
+            >
+              <option value="">Select rating</option>
+              {[1, 2, 3, 4, 5].map((num) => (
+                <option key={num} value={num}>
+                  {num}
+                </option>
+              ))}
+            </select>
           </div>
 
           <div>

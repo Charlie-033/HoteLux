@@ -106,7 +106,7 @@ const Login = () => {
             </button>
             <p className="text-center pt-5 dark:text-gray-800">
               Dont’t Have An Account ?{" "}
-              <Link to="/auth/register" className="text-orange-600">
+              <Link to="/register" className="text-orange-600">
                 Register
               </Link>
             </p>
