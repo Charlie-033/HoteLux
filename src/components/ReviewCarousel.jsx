@@ -33,7 +33,7 @@ export default function SimpleSlider() {
               {review.user} <span className="text-sm">Author</span>
             </p>
             <p className="text-md text-gray-600">{review.comment}</p>
-            <p className=" flex justify-between text-sm">
+            <p className="flex flex-col lg:flex-row justify-between text-sm">
               <span className="flex items-center text-md">Ratings: <FaStar className="px-1 text-xl text-yellow-500" /> {review.ratings}</span>
               <span>{review.createdAt}</span>
             </p>
