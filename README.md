@@ -118,4 +118,4 @@ Client: Vercel
 
 ## 📁 Repositories
 
-- **Server:** (https://github.com/Charlie-033/Plant-Care-Tracker-S)
+- **Server:** (https://github.com/Charlie-033/Hotelux-S)
