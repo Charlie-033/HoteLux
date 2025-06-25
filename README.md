@@ -1,14 +1,16 @@
+# Hotelux
+
 🌐 Live Website
 
 👉 https://hotel-booking-platform-48b83.web.app/
 
-📌 Project Purpose
+## 📌 Project Purpose
 
 This project is built to provide a seamless hotel booking experience with modern UI/UX design, authentication, real-time booking system, and reviews. It showcases a production-grade hotel booking portal where users can interactively explore rooms, filter by price, and share feedback.
 
 🔑 Key Features
 
-🏠 Home Page
+## 🏠 Home Page
 
 Dynamic Banner with CTA button to Rooms page
 
@@ -22,7 +24,7 @@ Special Offers Modal Popup on initial load
 
 Extra two sections (e.g., Amenities and Services)
 
-🔐 Authentication
+## 🔐 Authentication
 
 Email & Password login/register with Firebase Auth
 
@@ -32,7 +34,7 @@ Protected Routes with Firebase Access Token (JWT)
 
 Client-side secure token storage using localStorage
 
-🛏️ Rooms Page
+## 🛏️ Rooms Page
 
 Lists all rooms from database
 
@@ -40,7 +42,7 @@ Filter rooms by price range (Server-side filtering)
 
 Clickable cards redirecting to Room Details page
 
-📄 Room Details Page
+## 📄 Room Details Page
 
 Complete room info with image, amenities, pricing, etc.
 
@@ -50,7 +52,7 @@ Booking modal with date picker & availability check
 
 Only authenticated users can book/review
 
-📋 My Bookings
+## 📋 My Bookings
 
 Shows only current user’s bookings
 
@@ -60,7 +62,7 @@ Update Booking Date
 
 Submit Review (Only if booked)
 
-📝 Review System
+## 📝 Review System
 
 Authenticated users can leave reviews for booked rooms
 
@@ -68,13 +70,13 @@ Reviews include name (read-only), comment, rating (1–5), and timestamp
 
 Displayed in Room Details and Home carousel
 
-🔒 Security
+## 🔒 Security
 
 Firebase config secured via .env.local
 
 All protected routes secured using JWT token verification
 
-🎯 Extra Functionalities
+## 🎯 Extra Functionalities
 
 SweetAlert/Toast notifications
 
@@ -84,7 +86,7 @@ Framer Motion animations
 
 Implement dynamic title for routes
 
-⚙️ Technologies Used
+## ⚙️ Technologies Used
 
 Frontend
 
@@ -113,3 +115,7 @@ Framer Motion
 Deployment
 
 Client: Vercel 
+
+## 📁 Repositories
+
+- **Server:** (https://github.com/Charlie-033/Plant-Care-Tracker-S)
