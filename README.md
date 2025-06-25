@@ -119,3 +119,19 @@ Client: Vercel
 ## 📁 Repositories
 
 - **Server:** (https://github.com/Charlie-033/Hotelux-S)
+
+---
+
+## 🚀 Run Locally
+
+To run this project on your local machine, follow these steps:
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/Charlie-033/HoteLux.git
+cd your-repo-name
+
+npm install
+
+npm run dev
