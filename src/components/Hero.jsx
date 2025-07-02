@@ -32,8 +32,8 @@ const Hero = () => {
   }, [images.length]);
 
   return (
-    <div className="pb-5 ">
-      <div className="relative w-full h-[700px] overflow-hidden">
+    <div className="pb-5">
+      <div className="relative w-full h-[500px] overflow-hidden">
         {images.map((slide, i) => (
           <img
             key={i}

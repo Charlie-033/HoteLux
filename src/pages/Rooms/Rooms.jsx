@@ -34,7 +34,7 @@ const Rooms = () => {
     return <p className="text-center text-2xl py-2 my-auto">No rooms found!</p>;
 
   return (
-    <div>
+    <div className="mx-auto px-24">
       <h1 className="px-12 font-semibold text-3xl md:text-4xl lg:text-5xl py-10 flex justify-between">
         AVAILABLE ROOMS
         <span className="text-lg">

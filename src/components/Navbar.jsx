@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { AuthContext } from "../context/AuthContext/AuthContext";
 import { Link, NavLink } from "react-router";
 import { Tooltip } from "react-tooltip";
-import { FaUserAltSlash } from "react-icons/fa";
+import { FaMoon, FaSun, FaUserAltSlash } from "react-icons/fa";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -14,7 +14,7 @@ const Navbar = () => {
       .catch((error) => console.error(error));
   };
   return (
-    <div className="navbar  px-3 md:px-8 lg:px-16">
+    <div className="navbar px-3 md:px-8 lg:px-16 bg-[#FDF7F0]">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -43,13 +43,19 @@ const Navbar = () => {
             <li>
               <NavLink to="/rooms">Rooms</NavLink>
             </li>
-            <li>
-              <NavLink to={`/my-bookings/${user?.email}`}>My Bookings</NavLink>
-            </li>
+            {user && (
+              <li>
+                <NavLink to={`/my-bookings/${user?.email}`}>
+                  My Bookings
+                </NavLink>
+              </li>
+            )}
           </ul>
         </div>
         <div className="flex flex-col items-center justify-center">
-          <a className="text-lg lg:text-3xl text-stone-800">H O T E L U X</a>
+          <a href="/" className="text-lg lg:text-3xl text-stone-800">
+            H O T E L U X
+          </a>
           <span className="text-stone-800">Luxury Hotel</span>
         </div>
       </div>
@@ -57,7 +63,7 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1 space-x-5">
           <li>
             <NavLink
-               className={({ isActive }) =>
+              className={({ isActive }) =>
                 `bg-transparent p-0 m-0 border-none rounded-none shadow-none text-stone-800 hover:scale-125 transition-transform ${
                   isActive ? "font-semibold underline" : ""
                 }`
@@ -69,7 +75,7 @@ const Navbar = () => {
           </li>
           <li>
             <NavLink
-               className={({ isActive }) =>
+              className={({ isActive }) =>
                 `bg-transparent p-0 m-0 border-none rounded-none shadow-none text-stone-800 hover:scale-125 transition-transform ${
                   isActive ? "font-semibold underline" : ""
                 }`
@@ -79,27 +85,30 @@ const Navbar = () => {
               Rooms
             </NavLink>
           </li>
-          <li>
-            <NavLink
-               className={({ isActive }) =>
-                `bg-transparent p-0 m-0 border-none rounded-none shadow-none text-stone-800 hover:scale-125 transition-transform  ${
-                  isActive ? "font-semibold underline" : ""
-                }`
-              }
-              to={`/my-bookings/${user?.email}`}
-            >
-              My Bookings
-            </NavLink>
-          </li>
+          {user && (
+            <li>
+              <NavLink
+                className={({ isActive }) =>
+                  `bg-transparent p-0 m-0 border-none rounded-none shadow-none text-stone-800 hover:scale-125 transition-transform  ${
+                    isActive ? "font-semibold underline" : ""
+                  }`
+                }
+                to={`/my-bookings/${user?.email}`}
+              >
+                My Bookings
+              </NavLink>
+            </li>
+          )}
         </ul>
       </div>
       <div className="navbar-end flex items-center gap-3">
-        {/* <button
-          className="p-1 rounded-3xl bg-yellow-100 font-bold md:border-2 text-xs dark:text-white dark:bg-gray-900 dark:border-white"
-          onClick={() => setIsDark(!isDark)}
-        >
-          {isDark ? "☀️Light" : "🌙Dark"}
-        </button> */}
+       {/* <button
+            onClick={() => setIsDark(!isDark)}
+            className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-100 transition"
+            aria-label="Toggle Theme"
+          >
+            {isDark ? <FaSun /> : <FaMoon />}
+          </button> */}
         <span
           data-tooltip-id="user-tooltip"
           className="cursor-pointer text-sm"
