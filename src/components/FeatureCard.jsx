@@ -2,6 +2,7 @@ import React from "react";
 import { FaBed, FaRulerCombined, FaStar, FaUserFriends } from "react-icons/fa";
 import { useNavigate } from "react-router";
 import { motion } from "motion/react";
+import PrimaryBtn from "../services/PrimaryBtn";
 
 const FeatureCard = ({ room }) => {
   const {
@@ -72,12 +73,13 @@ const FeatureCard = ({ room }) => {
         </p>
         <p className="text-gray-700 text-sm">{shortDescription}</p>
         <div className="flex items center justify-center pt-1">
-          <button
+          {/* <button
             onClick={roomDetails}
-            className=" bg-blue-950 px-3 py-1 text-white"
+            className=" bg-blue-900 px-3 py-1 text-white cursor-pointer hover:bg-blue-500 duration-500 transition-colors mt-4"
           >
             Book Now
-          </button>
+          </button> */}
+          <PrimaryBtn label="Book Now" onClick={roomDetails}/>
         </div>
       </div>
     </motion.div>

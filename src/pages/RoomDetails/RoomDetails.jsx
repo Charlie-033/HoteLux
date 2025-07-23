@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import {
   FaStar,
   FaCalendarAlt,
@@ -124,7 +124,7 @@ const RoomDetails = () => {
               </span>
             </div>
           </div>
-          <motion.button onClick={handleBookingModal} className="btn btn-secondary" animate={{x:[0,10,0]}} transition={{repeat: Infinity, duration:2, ease: easeInOut}}>Book Now <FaArrowRight /></motion.button>
+          <motion.button onClick={handleBookingModal} className="btn btn-neutral" animate={{x:[0,10,0]}} transition={{repeat: Infinity, duration:2, ease: easeInOut}}>Book Now <FaArrowRight /></motion.button>
         </div>
         <BookingModal room={room}/>
         

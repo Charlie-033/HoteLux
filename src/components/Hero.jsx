@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router";
+import PrimaryBtn from "../services/PrimaryBtn";
 
 const Hero = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -61,7 +62,7 @@ const Hero = () => {
             </p>
           </div>
           <div className="mt-5">
-            <Link to="/rooms"><button className="btn bg-[#121258] border-none text-white">See Rooms</button></Link>
+            <Link to="/rooms"><PrimaryBtn label="See Rooms"/></Link>
           </div>
         </div>
       </div>
