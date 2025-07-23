@@ -28,11 +28,13 @@ const FeaturedRoom = () => {
       {
         rooms.length === 0 && <h1 className='text-center font-semibold text-3xl pt-10'>No Rooms Found!</h1>
       }
-      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 px-12 mx-auto py-10'>
+      <div className="w-full flex justify-center">
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 py-10 px-4'>
                 {
                     rooms.map((room, index) => <FeatureCard key={index} room={room} ></FeatureCard>)
                 }
             </div>
+      </div>
     </div>
   );
 };

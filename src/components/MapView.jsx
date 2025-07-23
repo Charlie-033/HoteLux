@@ -5,7 +5,7 @@ import "leaflet/dist/leaflet.css";
 const MapView = () => {
   const position = [41.8719, 12.5674];
   return (
-    <div className="pt-8">
+    <div className="pt-8 flex flex-col items-center">
       <h1 className="text-center font-semibold text-3xl md:text-4xl lg:text-5xl pt-10">
         FIND US ON MAP
       </h1>

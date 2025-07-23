@@ -1,4 +1,3 @@
-import React from 'react';
 
 const Explore = () => {
     return (
@@ -7,7 +6,8 @@ const Explore = () => {
             <p className='text-center w-4/5 lg:w-3/5 mx-auto pb-12'>Unlock exclusive savings and elevate your stay with our best offers and promotions! Discover seasonal discounts, package deals, and special rates designed to make your visit unforgettable. From romantic getaways to family adventures and business trips, find the perfect offer to suit your needs and enjoy exceptional value at our hotel.</p>
             <h2 className='text-center text-2xl text-gray-800'>Contact Front Desk:</h2>
             <p className='text-center text-lg'>+123 456 789; +987 654 321</p>
-            <div className='grid grid-cols-1 lg:grid-cols-2 gap-10 px-12 mx-auto py-10'>
+           <div className='flex justify-center'>
+             <div className='grid grid-cols-1 lg:grid-cols-2 gap-10 py-10 px-4'>
                 <div className='relative hover:cursor-pointer hover:scale-103 transition-transform duration-500'>
                     <img src="https://i.ibb.co/Y7L96Z0c/Explore-Poll.jpg" alt="" className='h-[400px] w-[700px] object-cover rounded hover:'/>
                     <p className='absolute bottom-[30px] lg:top-[180px] lg:left-[200px] text-red-200 text-2xl font-semibold  bg-opacity-50 px-3 py-2 rounded hover:underline'>Wellness Escape & Poll</p>
@@ -25,6 +25,7 @@ const Explore = () => {
                      <p className='absolute bottom-[30px] lg:top-[180px] lg:left-[200px] text-green-200 text-2xl font-semibold  bg-opacity-50 px-3 py-2 rounded hover:underline'>Journey Through Nature</p>
                 </div>
             </div>
+           </div>
         </div>
     );
 };

@@ -1,9 +1,8 @@
-import React from 'react';
 import { Outlet } from 'react-router';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import ScrollToTop from '../services/ScrollToTop';
-import Hero from '../components/Hero';
+
 
 const RootLayout = () => {
     return (

@@ -24,11 +24,11 @@ export default function SimpleSlider() {
     pauseOnHover: true,
   };
   return (
-    <div className="px-12 mx-auto">
+    <div className="px-12 mx-auto ">
       <h2 className="text-3xl text-center">Our Customers Review</h2>
       <Slider {...settings}>
         {reviews.map((review, index) => (
-          <div key={index} className="p-4 bg-white rounded shadow">
+          <div key={index} className="p-4  rounded shadow">
             <p className="text-lg font-semibold">
               {review.user} <span className="text-sm">Author</span>
             </p>
