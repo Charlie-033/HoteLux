@@ -34,7 +34,7 @@ const Rooms = () => {
     return <p className="text-center text-2xl py-2 my-auto">No rooms found!</p>;
 
   return (
-    <div className="mx-auto px-24">
+    <div className="px-4 md:px-10 lg:px-16">
       <h1 className="px-12 font-semibold text-3xl md:text-4xl lg:text-5xl py-10 flex justify-between">
         AVAILABLE ROOMS
         <span className="text-lg">
@@ -64,7 +64,7 @@ const Rooms = () => {
       </span>
       </h1>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 px-12 mx-auto pb-16">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 px-4 md:px-12 pb-16 ">
         {rooms.map((room, index) => (
           <RoomCard key={index} room={room}></RoomCard>
         ))}
