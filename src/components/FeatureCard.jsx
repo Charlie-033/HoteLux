@@ -2,7 +2,6 @@ import React from "react";
 import { FaBed, FaRulerCombined, FaStar, FaUserFriends } from "react-icons/fa";
 import { useNavigate } from "react-router";
 import { motion } from "motion/react";
-import PrimaryBtn from "../services/PrimaryBtn";
 
 const FeatureCard = ({ room }) => {
   const {
@@ -79,7 +78,13 @@ const FeatureCard = ({ room }) => {
           >
             Book Now
           </button> */}
-          <PrimaryBtn label="Book Now" onClick={roomDetails}/>
+          <button
+            onClick={roomDetails}
+            className="relative overflow-hidden group px-3 py-2 text-white bg-blue-900 rounded cursor-pointer"
+          >
+            <span className="relative z-10">Book Now</span>
+            <span className="absolute left-0 top-0 h-full w-0 bg-blue-600 transition-all duration-500 group-hover:w-full"></span>
+          </button>
         </div>
       </div>
     </motion.div>

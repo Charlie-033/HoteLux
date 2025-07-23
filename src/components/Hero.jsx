@@ -62,7 +62,14 @@ const Hero = () => {
             </p>
           </div>
           <div className="mt-5">
-            <Link to="/rooms"><PrimaryBtn label="See Rooms"/></Link>
+            <Link to="/rooms">
+            <button
+            className="relative overflow-hidden group px-3 py-2 text-white bg-blue-900 rounded cursor-pointer"
+          >
+            <span className="relative z-10">See Rooms</span>
+            <span className="absolute left-0 top-0 h-full w-0 bg-blue-600 transition-all duration-500 group-hover:w-full"></span>
+          </button>
+            </Link>
           </div>
         </div>
       </div>

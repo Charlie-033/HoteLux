@@ -139,14 +139,14 @@ const MyBookings = () => {
                           document.getElementById("booking_modal").showModal();
                         }, 0);
                       }}
-                      className="px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded text-xs w-27"
+                      className="px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded text-xs w-27 cursor-pointer"
                     >
                       Update Date
                     </button>
                     <br />
                     <button
                       onClick={() => handleCancelBooking(booking._id)}
-                      className="px-3 py-1 bg-red-500 hover:bg-red-600 text-white rounded text-xs w-27"
+                      className="px-3 py-1 bg-red-500 hover:bg-red-600 text-white rounded text-xs w-27 cursor-pointer"
                     >
                       Cancel Booking
                     </button>
@@ -158,7 +158,7 @@ const MyBookings = () => {
                           document.getElementById("review_modal").showModal();
                         }, 0);
                       }}
-                      className="px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded text-xs w-27"
+                      className="px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded text-xs w-27 cursor-pointer"
                     >
                       Review
                     </button>

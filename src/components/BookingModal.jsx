@@ -106,7 +106,7 @@ const BookingDialog = ({ room }) => {
 
           <div className="flex justify-end gap-2 mt-4">
             <button
-              className="px-4 py-2 bg-gray-200 rounded"
+              className="px-4 py-2 bg-gray-200 rounded cursor-pointer"
               onClick={() => document.getElementById("booking_modal").close()}
             >
               Cancel
@@ -114,7 +114,7 @@ const BookingDialog = ({ room }) => {
             <button
               disabled={!isAvailable || !selectedDate}
               onClick={handleConfirmBooking}
-              className="px-4 py-2 bg-blue-600 text-white rounded disabled:opacity-50"
+              className="px-4 py-2 bg-blue-600 text-white rounded disabled:opacity-50 cursor-pointer"
             >
               Confirm Booking
             </button>
