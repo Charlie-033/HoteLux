@@ -76,7 +76,7 @@ const WebsiteReview = () => {
               <button
                 type="submit"
                 onClick={handleSubmitReview}
-                className="btn btn-neutral"
+                className="btn btn-primary"
               >
                 Submit
               </button>

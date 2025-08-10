@@ -124,7 +124,7 @@ const RoomDetails = () => {
               </span>
             </div>
           </div>
-          <motion.button onClick={handleBookingModal} className="btn btn-neutral" animate={{x:[0,10,0]}} transition={{repeat: Infinity, duration:2, ease: easeInOut}}>Book Now <FaArrowRight /></motion.button>
+          <motion.button onClick={handleBookingModal} className="flex items-center gap-2 px-8 py-2 bg-white border border-blue-900 rounded font-medium cursor-pointer" animate={{x:[0,10,0]}} transition={{repeat: Infinity, duration:2, ease: easeInOut}}>Book Now <FaArrowRight /></motion.button>
         </div>
         <BookingModal room={room}/>
         

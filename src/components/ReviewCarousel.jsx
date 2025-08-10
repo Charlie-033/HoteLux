@@ -43,7 +43,7 @@ export default function SimpleSlider() {
       <div className="flex justify-center py-10">
         <button
           onClick={() => document.getElementById("review_modal").showModal()}
-          className="btn btn-neutral"
+          className="flex items-center gap-2 px-8 py-2 bg-white border border-blue-900 rounded font-medium cursor-pointer"
         >
           Review Us
         </button>
