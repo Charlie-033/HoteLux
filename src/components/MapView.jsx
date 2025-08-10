@@ -21,7 +21,7 @@ const MapView = () => {
           center={position}
           zoom={13}
           scrollWheelZoom={false}
-          style={{ width: "100%", borderRadius: "10px", height: "420px", maxHeight: "620px" }}
+          style={{ width: "100%", borderRadius: "10px", height: "450px", maxHeight: "650px" }}
           className="z-0"
         >
           <TileLayer
@@ -56,9 +56,9 @@ const MapView = () => {
           <div className="font-semibold mb-2">
             Neighborhood Name:{" "}
             <ul>
-              <li>Trastevere (e.g., "charming Trastevere neighborhood")</li>
-              <li>Monti (e.g., "historic Monti district")</li>
-              <li>Prati (e.g., "upscale Prati area")</li>
+              <li>Trastevere (e.g., "charming Trastevere neighborhood")</li> <br />
+              <li>Monti (e.g., "historic Monti district")</li> <br />
+              <li>Prati (e.g., "upscale Prati area")</li> <br />
               <li>
                 Spanish Steps/Trevi Fountain area (e.g., "the iconic Spanish
                 Steps area")
