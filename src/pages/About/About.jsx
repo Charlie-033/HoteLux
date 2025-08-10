@@ -73,7 +73,7 @@ export default function About() {
         </p>
         <a
           href="/rooms"
-          className="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold shadow hover:bg-blue-50 transition duration-300"
+          className="items-center gap-2 px-4 py-2 bg-white border border-blue-900 rounded font-medium cursor-pointer"
         >
           View Rooms
         </a>

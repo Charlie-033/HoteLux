@@ -18,7 +18,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <div className="navbar px-3 md:px-8 lg:px-16 bg-[#EEEFE0]">
+      <div className="navbar px-3 md:px-8 lg:px-16 bg-[#dfe8f6]">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -46,14 +46,17 @@ const Navbar = () => {
               <li>
                 <NavLink to="/rooms">Rooms</NavLink>
               </li>
+
+              {user && (
+                <li>
+                  <NavLink to={`/my-bookings/${user?.email}`}>
+                    My Bookings
+                  </NavLink>
+                </li>
+              )}
               <li>
                 <NavLink to="/about">About Us</NavLink>
               </li>
-              {user && (
-                <li>
-                  <NavLink to={`/my-bookings/${user?.email}`}>My Bookings</NavLink>
-                </li>
-              )}
             </ul>
           </div>
           <div className="flex flex-col items-center justify-center">
@@ -90,18 +93,7 @@ const Navbar = () => {
                 Rooms
               </NavLink>
             </li>
-            <li>
-              <NavLink
-                className={({ isActive }) =>
-                  `bg-transparent p-0 m-0 border-none rounded-none shadow-none text-stone-800 hover:scale-125 transition-transform ${
-                    isActive ? "font-semibold underline" : ""
-                  }`
-                }
-                to="/about"
-              >
-                About Us
-              </NavLink>
-            </li>
+
             {user && (
               <li>
                 <NavLink
@@ -116,6 +108,18 @@ const Navbar = () => {
                 </NavLink>
               </li>
             )}
+            <li>
+              <NavLink
+                className={({ isActive }) =>
+                  `bg-transparent p-0 m-0 border-none rounded-none shadow-none text-stone-800 hover:scale-125 transition-transform ${
+                    isActive ? "font-semibold underline" : ""
+                  }`
+                }
+                to="/about"
+              >
+                About Us
+              </NavLink>
+            </li>
           </ul>
         </div>
 
