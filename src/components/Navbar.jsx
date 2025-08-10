@@ -60,10 +60,10 @@ const Navbar = () => {
             </ul>
           </div>
           <div className="flex flex-col items-center justify-center">
-            <a href="/" className="text-lg lg:text-3xl text-stone-800">
+            <a href="/" className="text-lg lg:text-2xl text-gray-800">
               H O T E L U X
             </a>
-            <span className="text-stone-800 text-sm">Luxury Hotel</span>
+            <span className="text-gray-800 text-sm">Luxury Hotel</span>
           </div>
         </div>
 
